@@ -1,0 +1,21 @@
+<main class="container">
+
+<h3>Pincha en cada elemento para cambiar estado a completado/no completado</h3>
+<table class="table table-success">
+ 
+  <thead><tr><th>USERID</th>
+    <th>ID</th>
+    <th>TITLE</th>
+    <th>COMPLETED</th>
+  </tr></thead>
+  <tbody>
+  <tr *ngFor="let item of items" (click)="cambiaEstado(item)"> 
+<td>{{item.userId}}</td>
+<td>{{item.id}}</td>
+<td *ngIf="item.completed; else elseBlock">{{item.mays}}</td>
+<ng-template #elseBlock><td [ngClass]="{'falta' : !item.completed}">{{item.mins}}</td></ng-template>
+<td [ngClass]="{'nocompletado' : !item.completed}">{{item.completed}}</td>
+</tr> 
+</tbody>
+</table> 
+</main>
